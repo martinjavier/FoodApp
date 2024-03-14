@@ -14,7 +14,7 @@ test("Search Cheese blue", async ({ page }) => {
   // Input value
   FoodLookup.searchField.fill("Cheese, blue");
   // Press Enter
-  FoodLookup.verifySearch();
+  FoodLookup.searchField.click();
   // Verify Values
   await expect(FoodLookup.desc).toContainText("Cheese, blue");
   await expect(FoodLookup.kcal).toContainText("353");
@@ -31,6 +31,8 @@ test("Search Cheese blue", async ({ page }) => {
   await expect(FoodLookup.SelectedProtein).toContainText("21.4");
   await expect(FoodLookup.SelectedFat).toContainText("27.25");
   await expect(FoodLookup.SelectedCarbs).toContainText("2.34");
+  // Wait
+  await delay(2000);
   // Close Browser
   await page.close();
 });
@@ -45,7 +47,7 @@ test("Search Butter with salt", async ({ page }) => {
   // Input value
   FoodLookup.searchField.fill("Butter, with salt");
   // Press Enter
-  FoodLookup.verifySearch();
+  FoodLookup.searchField.click();
   // Verify Values
   await expect(FoodLookup.desc).toContainText("Butter, with salt");
   await expect(FoodLookup.kcal).toContainText("717");
@@ -62,6 +64,8 @@ test("Search Butter with salt", async ({ page }) => {
   await expect(FoodLookup.SelectedProtein).toContainText("0.85");
   await expect(FoodLookup.SelectedFat).toContainText("75.43");
   await expect(FoodLookup.SelectedCarbs).toContainText("0.06");
+  // Wait
+  await delay(2000);
   // Close Browser
   await page.close();
 });
